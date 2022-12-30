@@ -34,10 +34,10 @@ class iRacing
     public DataClass $team;
     public DataClass $track;
     
-    function __construct(string $username, string $password, $cookiejar = LibConstants::COOKIEJAR)
+    function __construct(string $username, string $password, bool $isHashed, $cookiejar = LibConstants::COOKIEJAR)
     {
-        $this->api = new Api($username, $password, $cookiejar);
-
+        
+        $this->api = new Api($username, $password, $isHashed, $cookiejar);
         $this->car = new Car($this->api);
         $this->carclass = new CarClass($this->api);
         $this->constants = new Constants($this->api);
