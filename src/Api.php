@@ -20,10 +20,14 @@ class Api
 
     public RateLimits $rateLimits;
 
-    function __construct(string $username, string $password, string $cookiejar)
+    function __construct(string $username, string $password, bool $isHashed, string $cookiejar)
     {
         $this->username = $username;
-        $this->loginHash = $this->hashLogin($username, $password);
+        if($isHashed){
+           $this->loginHash = $this->$password;
+        } else {
+           $this->loginHash = $this->hashLogin($username, $password);
+        }
         $this->jar = new FileCookieJar($cookiejar);
         $this->guzzle = new \GuzzleHttp\Client();
         $this->rateLimits = new RateLimits();
