@@ -24,7 +24,7 @@ class Api
     {
         $this->username = $username;
         if($isHashed){
-           $this->loginHash = $this->$password;
+           $this->loginHash = $password;
         } else {
            $this->loginHash = $this->hashLogin($username, $password);
         }
