@@ -1,5 +1,5 @@
 {
-    "name": "mwgg/iracing-php",
+    "name": "irecycled/iracing-php",
     "description": "iRacing Data API wrapper for PHP",
     "type": "library",
     "license": "MIT",
@@ -10,7 +10,7 @@
     },
     "authors": [
         {
-            "name": "mwgg"
+            "name": "irecycled"
         }
     ],
     "require": {
