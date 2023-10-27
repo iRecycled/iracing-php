@@ -14,25 +14,26 @@ use iRacingPHP\Data\Season;
 use iRacingPHP\Data\Series;
 use iRacingPHP\Data\Stats;
 use iRacingPHP\Data\Team;
+use iRacingPHP\Data\TimeAttack;
 use iRacingPHP\Data\Track;
-use iRacingPHP\Exceptions\ApiServiceNotFoundException;
 
 class iRacing
 {
     public Api $api;
-    public DataClass $car;
-    public DataClass $carclass;
-    public DataClass $constants;
-    public DataClass $hosted;
-    public DataClass $league;
-    public DataClass $lookup;
-    public DataClass $member;
-    public DataClass $results;
-    public DataClass $season;
-    public DataClass $series;
-    public DataClass $stats;
-    public DataClass $team;
-    public DataClass $track;
+    public Car $car;
+    public CarClass $carclass;
+    public Constants $constants;
+    public Hosted $hosted;
+    public League $league;
+    public Lookup $lookup;
+    public Member $member;
+    public Results $results;
+    public Season $season;
+    public Series $series;
+    public Stats $stats;
+    public Team $team;
+    public Track $track;
+    public TimeAttack $time_attack;
     
     function __construct(string $username, string $password, bool $isHashed, $cookiejar = LibConstants::COOKIEJAR)
     {
@@ -51,5 +52,6 @@ class iRacing
         $this->team = new Team($this->api);
         $this->track = new Track($this->api);
         $this->stats = new Stats($this->api);
+        $this->time_attack = new TimeAttack($this->api);
     }
 }
